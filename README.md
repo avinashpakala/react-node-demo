@@ -1,3 +1,6 @@
+Note: For express-react  starter boiler plate used  https://github.com/aautio/react-express-postgres-heroku
+
+To start the app 
 npm run start:dev
 
 Used heroku-postgresql for database.
