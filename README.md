@@ -14,3 +14,6 @@ created apis as:
 4. /api/degree to show degree of connection between startUser and endUser
 
 For now, one can add data into database using postgrator package.
+
+Recursive query to find degree of connection is in api/degree.js file
+
