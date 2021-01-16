@@ -66,12 +66,12 @@ class App extends Component {
       })
 
      
-    // fetch('/api/degree?startID=2&endID=5',{
-    // })
-    // .then(res => res.json())
-    // .then(data => {
-    //    this.setState({ degree: data })
-    //   })
+    fetch('/api/degree?startID=2&endID=5',{
+    })
+    .then(res => res.json())
+    .then(data => {
+       this.setState({ degree: data })
+      })
   }
 
   starthandleChange(event) {
