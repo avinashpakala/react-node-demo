@@ -3,9 +3,13 @@ const router = express.Router()
 
 const { db } = require('../lib/database')
 
-router.get('/api/postgres', (req, res, next) => {
+const query = `
+select * from users;
+`;
+
+router.get('/api/users', (req, res, next) => {
   db
-    .any('select * from hello')
+    .any(query) 
     .then(data => {
       res.json(`${req.path} fetched ${JSON.stringify(data)} from the database`)
     })
