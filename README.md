@@ -1,4 +1,4 @@
-Note: For express-react  starter boiler plate used  https://github.com/aautio/react-express-postgres-heroku
+Note: For express-react  starter boiler plate I used  https://github.com/aautio/react-express-postgres-heroku
 
 To start the app 
 npm run start:dev
@@ -14,3 +14,6 @@ created apis as:
 4. /api/degree to show degree of connection between startUser and endUser
 
 For now, one can add data into database using postgrator package.
+
+Recursive query to find degree of connection is in api/degree.js file
+
