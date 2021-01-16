@@ -1,5 +1,5 @@
 {
-  "name": "react-express-postgres-heroku",
+  "name": "react-nodejs-ap",
   "version": "1.0.0",
   "engines": {
     "node": "8.x.x",
@@ -11,7 +11,7 @@
     "postinstall": "npm --prefix react-ui install && npm --prefix server install",
     "start:dev": "concurrently 'npm run --prefix react-ui start' 'npm run --prefix server start'",
     "heroku-postbuild": "npm run --prefix react-ui build",
-    "start": "node server.js"
+    "start": "cd server && NODE_ENV=production node server.js"
   },
   "author": "Avinash",
   "license": "MIT",
