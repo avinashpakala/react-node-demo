@@ -3,14 +3,26 @@ import logo from './logo.svg'
 import './App.css'
 
 class App extends Component {
-  state = {
-    connections: null,
-    error: null,
-    users:null,
-    relations:null,
-    degree:null,
-  }
 
+  constructor(props) {
+    super(props);
+    this.state ={
+      connections: null,
+      error: null,
+      users:null,
+      relations:null,
+      degree:null,
+      startValue:"1",
+      endValue:"5"
+    };
+
+    this.starthandleChange = this.starthandleChange.bind(this);
+    this.endhandleChange = this.endhandleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
+
+ 
   componentDidMount() {
     
     fetch('/api/users')
@@ -54,10 +66,31 @@ class App extends Component {
       })
 
      
-    fetch('/api/degree')
+    // fetch('/api/degree?startID=2&endID=5',{
+    // })
+    // .then(res => res.json())
+    // .then(data => {
+    //    this.setState({ degree: data })
+    //   })
+  }
+
+  starthandleChange(event) {
+    this.setState({startValue: event.target.value});
+  }
+   endhandleChange(event) {
+    this.setState({endvalue: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    var startQuery = this.state.startValue;
+    var endQuery = this.state.endValue;
+    
+    fetch('/api/degree?startID='+startQuery+ '&'+ 'endID='+endQuery,{
+    })
     .then(res => res.json())
     .then(data => {
-       this.setState({ degree: data })
+      this.setState({ degree: data });
       })
   }
   render() {
@@ -72,8 +105,32 @@ class App extends Component {
         <p className="App-intro">{users}</p>
         <p className="App-intro">{relations}</p>
         <p className="App-intro">{connections}</p>
-        <p className="App-intro">{degree}</p>
-        <p className="App-intro">{error}</p>
+        <form onSubmit={this.handleSubmit}>
+        <label>
+          Pick your start user:
+          <select value={this.state.startValue} onChange={this.starthandleChange}>
+            <option value="1">Sameer</option>
+            <option value="2">Aayushi</option>
+            <option value="3">KamalNath Sharma</option>
+            <option value="4">ShantiKumar Saha</option>
+            <option value="5">Bhaskar</option>
+          </select>
+        </label>
+        <label>
+          Pick your end user:
+          <select value={this.state.endValue} onChange={this.endhandleChange}>
+            <option value="1">Sameer</option>
+            <option value="2">Aayushi</option>
+            <option value="3">KamalNath Sharma</option>
+            <option value="4">ShantiKumar Saha</option>
+            <option value="5">Bhaskar</option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+     
+      <p className="App-intro">{degree}</p>
+      <p className="App-intro">{error}</p>
       </div>
     )
   }
