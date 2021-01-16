@@ -69,6 +69,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  * Migrate database before listening for requests
  */
+//postgrator
 const postgrator = require('postgrator')
 const { connectionString } = require('./lib/database')
 
