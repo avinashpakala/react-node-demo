@@ -78,7 +78,7 @@ class App extends Component {
     this.setState({startValue: event.target.value});
   }
    endhandleChange(event) {
-    this.setState({endvalue: event.target.value});
+    this.setState({endValue: event.target.value});
   }
 
   handleSubmit(event) {
