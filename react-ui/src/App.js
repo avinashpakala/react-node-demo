@@ -54,10 +54,10 @@ class App extends Component {
       })
 
      
-      fetch('/api/degree')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ degree: data })
+    fetch('/api/degree')
+    .then(res => res.json())
+    .then(data => {
+       this.setState({ degree: data })
       })
   }
   render() {
